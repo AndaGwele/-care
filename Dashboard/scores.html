@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.A.R.E</title>
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+        <style>
+            /* ===== Explore Communities Page Styles ===== */
+
+/* Main Layout */
+main {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Section Headings */
+main h2 {
+    color: var(--primary-color, #2c3e50);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color, #e74c3c);
+    padding-bottom: 0.4rem;
+    text-align: center;
+}
+
+/* Search Form */
+#search-title + form {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    background: var(--light-color, #fff);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+#search-title + form label {
+    display: none; /* hide label for cleaner UI, placeholder guides user */
+}
+
+#location-search {
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    min-width: 250px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+#location-search:focus {
+    border-color: var(--accent-color, #3498db);
+    outline: none;
+}
+
+#search-title + form button {
+    background: var(--secondary-color, #e74c3c);
+    color: var(--text-light, #fff);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#search-title + form button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Safety Ratings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--light-color, #fff);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+thead {
+    background: var(--primary-color, #2c3e50);
+    color: var(--text-light, #fff);
+}
+
+thead th {
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+    color: var(--text-color, #333);
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Hover effect */
+tbody tr:hover {
+    background: #f1f1f1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 1rem;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: var(--shadow, 0 2px 5px rgba(0,0,0,0.1));
+    }
+
+    tbody td {
+        padding: 0.8rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+    }
+
+    tbody td:last-child {
+        border-bottom: none;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary-color, #2c3e50);
+    }
+}
+
+        </style>
+    </head>
+    <body>
+        <!--Header-->
+        <header>
+            <a href="index.html"><img src="../assets/images/favicon.png"
+                    alt="C.A.R.E Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_Us.html">About</a></li>
+                    <li><a href="scores.html" aria-current="page">Explore
+                            Communities</a></li>
+                    <li><a href="Police.html">Police Services</a></li>
+                    <li><a href="reports.html">View Reports</a></li>
+                    <li><a href="analysis.html">Analysis</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section aria-labelledby="search-title">
+                <h2 id="search-title">Find a Neighborhood</h2>
+                <form>
+                    <label for="location-search">Enter Location:</label>
+                    <input id="location-search" type="text"
+                        placeholder="Enter location...">
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+
+            <section aria-labelledby="scores-list-title">
+                <h2 id="scores-list-title">Safety Ratings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Neighborhood</th>
+                            <th scope="col">Crime Level</th>
+                            <th scope="col">Score (1-10)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Street</td>
+                            <td>High</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Park Lane</td>
+                            <td>Moderate</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 C.A.R.E.</p>
+        </footer>
+    </body>
+</html>

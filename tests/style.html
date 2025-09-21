@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.A.R.E - Community Alert and Response Emergency</title>
+        <link rel="stylesheet" href="styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <style>
+        /* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Banner section */
+#banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.slider {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+.slider.active {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Button styles */
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.primary {
+  background: #ff6b6b;
+  color: white;
+}
+
+.cta-button.secondary {
+  background: #4ecdc4;
+  color: white;
+}
+
+.cta-button.tertiary {
+  background: #45b7d1;
+  color: white;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats section */
+#stats {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #2d3748;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Features section */
+#features {
+  padding: 80px 0;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover::before {
+  transform: scaleX(1);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: white;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+  filter: grayscale(0);
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.feature p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Video section */
+#video {
+  padding: 80px 0;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.video-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+/* Footer */
+footer {
+  background: #2d3748;
+  color: white;
+  padding: 3rem 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #667eea;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #a0aec0;
+}
+
+.footer-section p {
+  color: #a0aec0;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  .slide-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-content h1 {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+
+        </style>
+    </head>
+    <body>
+        <!--Header-->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <h2>C.A.R.E</h2>
+                </div>
+                <!--navigation-->
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="About_Us.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Explore.html">Explore Communities</a></l i>
+                        </ul>
+                    </nav>
+                    <!--End navigation-->
+                </div>
+            </header>
+            <!--End header-->
+
+            <!--main -->
+            <main>
+                <!--Banner Section-->
+                <section id="banner">
+                    <div class="container">
+                        <div class="slider active" id="slider1">
+                            <div class="slide-content">
+                                <h1>Welcome to C.A.R.E</h1>
+                                <p class="subtitle">Community Alert and Response
+                                    Emergency</p>
+                                <p class="description">Empowering communities
+                                    through real-time crime reporting and safety
+                                    insights</p>
+                                <a href="SignUp.html"
+                                    class="cta-button primary">Get Started</a>
+                            </div>
+                        </div>
+
+                        <div class="slider" id="slider2">
+                            <div class="slide-content">
+                                <h1>Report Crime Anonymously</h1>
+                                <p class="description">Your safety is our
+                                    priority. Report crimes in your community
+                                    anonymously and help us create a safer
+                                    environment for everyone.</p>
+                                <a href="SignUp.html"
+                                    class="cta-button secondary">Report
+                                    Crime</a>
+                            </div>
+                        </div>
+
+                        <div class="slider" id="slider3">
+                            <div class="slide-content">
+                                <h1>Explore Community Safety Scores</h1>
+                                <p class="description">Thinking of moving to a
+                                    new area? Explore community safety scores
+                                    and make informed decisions about where to
+                                    live.</p>
+                                <a href="Explore.html"
+                                    class="cta-button tertiary">Explore Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End Banner Section-->
+
+                <!--stats section-->
+                <section id="stats">
+                    <div class="container">
+                        <h2 class="section-title">Our Impact in Numbers</h2>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <h3>500+</h3>
+                                <p>Crimes Reported</p>
+                            </div>
+                            <div class="stat">
+                                <h3>300+</h3>
+                                <p>Communities Monitored</p>
+                            </div>
+                            <div class="stat">
+                                <h3>1000+</h3>
+                                <p>Active Users</p>
+                            </div>
+                            <div class="stat">
+                                <h3>50+</h3>
+                                <p>Safety Tips Provided</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end stats section-->
+
+                <!--features section-->
+                <section id="features">
+                    <div class="container">
+                        <h2 class="section-title">Key Features</h2>
+                        <div class="features-grid">
+                            <div class="feature">
+                                <div class="feature-icon">🚨</div>
+                                <h3>Real-Time Crime Reporting</h3>
+                                <p>Report crimes as they happen and help keep
+                                    your community safe.</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">📊</div>
+                                <h3>Community Safety Scores</h3>
+                                <p>Get insights into the safety of different
+                                    neighborhoods before you move.</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">🔒</div>
+                                <h3>Anonymous Reporting</h3>
+                                <p>Your identity is protected when you report a
+                                    crime.</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">💡</div>
+                                <h3>Safety Tips and Resources</h3>
+                                <p>Access valuable tips and resources to stay
+                                    safe in your community.</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">👮</div>
+                                <h3>Police Integration</h3>
+                                <p>Work directly with local law enforcement to
+                                    address community concerns.</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">🏘️</div>
+                                <h3>Real-time Community Issues</h3>
+                                <p>Get visual insights on real-time community
+                                    issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end features section-->
+
+                <!--video section-->
+                <section id="video">
+                    <div class="container">
+                        <h2 class="section-title">See C.A.R.E in Action</h2>
+                        <div class="video-wrapper">
+                            <iframe
+                                width="560"
+                                height="315"
+                                src="https://www.youtube.com/embed/qhV1ZzoG5SM"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </section>
+                <!--end video section-->
+            </main>
+            <!--End main-->
+
+            <!--Footer-->
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3>C.A.R.E</h3>
+                            <p>Building safer communities through technology and
+                                collaboration.</p>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Developers</h4>
+                            <p>AndaGwele, Sibahle Vimabani, Milisa Felem</p>
+                        </div>
+                        <div class="footer-section">
+                            <p>&copy; 2025 Group 8. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--end footer-->
+        </body>
+    </html>

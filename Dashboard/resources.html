@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.A.R.E | Safety Resources</title>
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <style>
+
+            /* Resource Sections */
+.resource-section {
+    background: var(--text-light);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+}
+
+.resource-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: var(--font-size-xl);
+    text-align: center;
+}
+
+/* Community Safety Tips Section */
+.resource-section {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--light-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.resource-section h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Tips Grid */
+.styled-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.styled-list li {
+    background-color: var(--text-light);
+    padding: 1.5rem 1rem;
+    border-left: 6px solid var(--color-accent);
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.styled-list li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.styled-list li strong {
+    color: var(--primary-color);
+}
+/* Emergency Contacts */
+.contacts p {
+    font-size: var(--font-size-lg);
+    margin: 0.6rem 0;
+    text-align: center;
+}
+
+.contacts a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+}
+
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <img src="assets/images/favicon.png" alt="C.A.R.E Logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_Us.html">About</a></li>
+                    <li><a href="resources.html"
+                            aria-current="page">Resources</a></li>
+                </ul>
+            </nav>
+            <a href="SignUp.html" class="btn-cta">Sign Up / Login</a>
+
+        </header>
+
+        <!-- Main -->
+        <main>
+            <!-- Safety Tips -->
+            <section aria-labelledby="tips-title" class="resource-section">
+                <h1 id="tips-title">Community Safety Tips</h1>
+                <ul class="styled-list">
+                    <!-- Home Safety -->
+                    <li><strong>Secure Your Home:</strong> Always lock doors and
+                        windows, install motion-sensor lights, and consider a
+                        home security system.</li>
+                    <li><strong>Emergency Contacts:</strong> Keep local police
+                        and emergency numbers handy. Save them on your phone and
+                        in visible areas at home.</li>
+
+                    <!-- Personal Safety -->
+                    <li><strong>Stay Alert:</strong> Be aware of your
+                        surroundings, especially at night or in less populated
+                        areas.</li>
+                    <li><strong>Walk in Groups:</strong> Whenever possible, walk
+                        with others and avoid isolated paths.</li>
+                    <li><strong>Safe Transportation:</strong> Use trusted
+                        transportation options and share your travel plans with
+                        family or friends.</li>
+
+                    <!-- Community Awareness -->
+                    <li><strong>Report Suspicious Activity:</strong> Use the
+                        C.A.R.E platform to report crimes anonymously and in
+                        real-time.</li>
+                    <li><strong>Neighborhood Watch:</strong> Engage with your
+                        community and participate in local safety programs.</li>
+                    <li><strong>Know Your Community:</strong> Stay informed
+                        about local incidents and patterns to make safer
+                        decisions.</li>
+
+                    <!-- Digital & Online Safety -->
+                    <li><strong>Protect Personal Information:</strong> Avoid
+                        sharing sensitive details online that could compromise
+                        your safety.</li>
+                    <li><strong>Social Media Awareness:</strong> Be cautious
+                        about posting your location or travel plans
+                        publicly.</li>
+                </ul>
+            </section>
+
+            <!-- Emergency Contacts -->
+            <section aria-labelledby="contacts-title" class="resource-section">
+                <h1 id="contacts-title">Emergency Contacts</h1>
+                <address class="contacts">
+                    <p>Police: <a href="tel:10111">10111</a></p>
+                    <p>Ambulance: <a href="tel:10177">10177</a></p>
+                    <p>Fire Department: <a href="tel:112">112</a></p>
+                </address>
+            </section>
+
+            <!-- Downloadable Guides -->
+            <section aria-labelledby="resources-title" class="resource-section">
+                <h1 id="resources-title">Community Resources</h1>
+                <section class="resource-grid">
+                    <!-- PDF Preview Card -->
+                    <section class="resource-card">
+                        <h3>Neighborhood Watch Handbook</h3>
+                        <iframe src="assets/neigh.pdf"
+                            width="100%"
+                            height="300"
+                            style="border:1px solid #ccc; border-radius:8px;"
+                            title="Neighborhood Watch Handbook PDF"></iframe>
+                        <a href="assets/neigh.pdf" target="_blank"
+                            class="resource-link">Open Full PDF</a>
+                    </section>
+
+                    <section class="resource-card">
+                        <h3>Emergency Preparedness Guide</h3>
+                        <iframe src="assets/emergency.pdf"
+                            width="100%"
+                            height="300"
+                            style="border:1px solid #ccc; border-radius:8px;"
+                            title="Emergency Preparedness PDF"></iframe>
+                        <a href="assets/emergency.pdf" target="_blank"
+                            class="resource-link">Open Full PDF</a>
+                    </section>
+                </section>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 C.A.R.E. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

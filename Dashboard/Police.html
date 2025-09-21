@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.A.R.E</title>
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+        <style>
+            /* ===== Police Services Page Styles ===== */
+
+/* Main Layout */
+main {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Section Headings */
+main h2 {
+    color: var(--primary-color, #2c3e50);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color, #e74c3c);
+    padding-bottom: 0.4rem;
+}
+
+/* Forms */
+form {
+    background: var(--light-color, #fff);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow, 0 4px 6px rgba(0,0,0,0.1));
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: 600;
+    color: var(--primary-color, #2c3e50);
+}
+
+form input {
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+form input:focus {
+    border-color: var(--accent-color, #3498db);
+    outline: none;
+}
+
+form button {
+    background: var(--secondary-color, #e74c3c);
+    color: var(--text-light, #fff);
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+form button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Live Incident Feed */
+#live-feed-title + aside {
+    background: var(--light-color, #fff);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+#live-feed-title + aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#live-feed-title + aside li {
+    padding: 0.6rem 0.8rem;
+    border-left: 4px solid var(--accent-color, #3498db);
+    margin-bottom: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--text-color, #333);
+}
+
+#live-feed-title + aside li time {
+    font-weight: bold;
+    color: var(--secondary-color, #e74c3c);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+}
+
+        </style>
+    </head>
+    <body>
+        <!--Header-->
+        <header>
+            <a href="index.html"><img src="../assets/images/favicon.png"
+                    alt="C.A.R.E Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_Us.html">About</a></li>
+                    <li><a href="scores.html">Explore
+                            Communities</a></li>
+                    <li><a href="Police.html" aria-current="page">Police
+                            Services</a></li>
+                    <li><a href="reports.html">View Reports</a></li>
+                    <li><a href="scores.html">Analysis</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section aria-labelledby="login-title">
+                <h2 id="login-title">Authorized Access</h2>
+                <form>
+                    <label for="badge-id">Badge ID:</label>
+                    <input id="badge-id" type="text" name="badge-id">
+
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password">
+
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+
+            <section aria-labelledby="live-feed-title">
+                <h2 id="live-feed-title">Live Incident Feed</h2>
+                <aside>
+                    <ul>
+                        <li><time datetime="2025-09-13T11:05">11:05</time> -
+                            Assault reported at Market Street</li>
+                        <li><time datetime="2025-09-13T11:10">11:10</time> -
+                            Fire hazard at Downtown Apartments</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section aria-labelledby="actions-title">
+                <h2 id="actions-title">Take Action</h2>
+                <form>
+                    <label for="incident-id">Incident ID:</label>
+                    <input id="incident-id" type="text">
+
+                    <label for="assign-officer">Assign Officer:</label>
+                    <input id="assign-officer" type="text">
+
+                    <button type="submit">Dispatch</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 C.A.R.E. Secure Access Only.</p>
+        </footer>
+    </body>
+</html>

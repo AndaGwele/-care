@@ -1,0 +1,285 @@
+<!--
+@page:
+ABOUT US
+
+@DESCRIPTION: 
+This page contains info about the organisation and the system 
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.A.R.E</title>
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <style>
+        /* About Section */
+        main > section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        main section h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        main section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+
+#Features {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive columns */
+    gap: 1.5rem; /* spacing between items */
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+#Features h2 {
+    grid-column: 1 / -1; /* make the heading span full width */
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+        #Features .feature {
+            background: var(--text-light);
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            border-left: 6px solid #ffcc00;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #Features .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        #Features .feature h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Team Section */
+        article {
+            margin: 3rem auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        article h1 {
+            margin-bottom: 1.5rem;
+            font-size: 1.9rem;
+            color: var(--primary-color);
+        }
+
+        /* Team Section */
+article {
+    margin: 3rem auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+article h1 {
+    margin-bottom: 2rem;
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+}
+
+/* Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Team Card */
+.team-card {
+    background: var(--text-light);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.team-card img {
+    width: 250px;
+    height: 500px;
+   
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.team-card h3 {
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.team-card p {
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+
+.team-card a {
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.team-card a:hover {
+    text-decoration: underline;
+}
+
+
+        
+    </style>
+    </head>
+    <body>
+        <!--Header-->
+        <header>
+            <a href="index.html"><img src="../assets/images/favicon.png"
+                    alt="C.A.R.E Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_Us.html"
+                            aria-current="page">About</a></li>
+                    <li><a href="scores.html">Explore
+                            Communities</a></li>
+                    <li><a href="Police.html">Police Services</a></li>
+                    <li><a href="reports.html">View Reports</a></li>
+                    <li><a href="scores.html">Analysis</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Main -->
+        <main>
+            <!--About Section-->
+            <section>
+                <h1>About C.A.R.E</h1>
+                <p>
+                    C.A.R.E, which stands for Community Alert and Response
+                    Emergency, is a cutting-edge web application designed to
+                    enhance community safety and engagement.<br />
+                    Our platform empowers users to report crimes
+                    anonymously,
+                    access real-time crime data, and explore community
+                    safety
+                    scores.<br />
+                    By fostering collaboration between residents and law
+                    enforcement, C.A.R.E aims to create safer neighborhoods
+                    and
+                    promote a sense of security for all.
+                </p>
+            </section>
+            <!--End About Section-->
+
+            <!--Features Section-->
+            <section id="Features">
+                <h2>Key Features</h2>
+                <section class="feature">
+                    <h3>Real-Time Crime Reporting</h3>
+                    <p>Report crimes as they happen and help keep your
+                        community
+                        safe.</p>
+                </section>
+                <section class="feature">
+                    <h3>Community Safety Scores</h3>
+                    <p>Get insights into the safety of different
+                        neighborhoods
+                        before you move.</p>
+                </section>
+                <section class="feature">
+                    <h3>Anonymous Reporting</h3>
+                    <p>Your identity is protected when you report a
+                        crime.</p>
+                </section>
+                <section class="feature">
+                    <h3>Safety Tips and Resources</h3>
+                    <p>Access valuable tips and resources to stay safe in
+                        your
+                        community.</p>
+                </section>
+                <section class="feature">
+                    <h3>Police Integration</h3>
+                    <p>Work directly with local law enforcement to address
+                        community concerns.</p>
+                </section>
+                <section class="feature">
+                    <h3>Real-Time Community Issues</h3>
+                    <p>Get visual insights on real-time community
+                        issues.</p>
+                </section>
+            </section>
+            <!--End Features Section-->
+
+            <!--Team Section-->
+            <article>
+                <h1>Meet the Team</h1>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="../assets/images/anda.jpg"
+                            alt="Picture of Anda Gwele">
+                        <h3>Anda Gwele</h3>
+                        <p>Full Stack-End Developer</p>
+                        <a
+                            href="mailto:andagwele1@gmail.com">andagwele1@gmail.com</a>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="../assets/images/sbahle.jpg"
+                            alt="Picture of Sibahle Vimabani">
+                        <h3>Sibahle Vimabani</h3>
+                        <p>Front-End Developer</p>
+                        <a
+                            href="mailto:sbahlevimbani@gmail.com">sbahlevimbani@gmail.com</a>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="../assets/images/milisa.jpg"
+                            alt="Picture of Milisa Felem">
+                        <h3>Milisa Felem</h3>
+                        <p>Back-End Developer</p>
+                        <a
+                            href="mailto:felemmilisa60@gmail.com">felemmilisa60@gmail.com</a>
+                    </div>
+                </div>
+            </article>
+
+            <!--End Team Section-->
+        </main>
+        <!--End Main-->
+
+        <!--Footer-->
+        <footer>
+            <p><i>&copy; Copyright</i> of Group 8</p>
+            <p>Developers: Anda Gwele, Sibahle Vimabani, Milisa Felem</p>
+        </footer>
+        <!--End Footer-->
+    </body>
+</html>
